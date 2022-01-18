@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Register</title>
+</head>
+<body>
+    <div class="container">
+        <h3>Register</h3>
+        <form id="reg-form">
+            <input type="email" placeholder="Email" id="user-email"/>
+            <input type="password" placeholder="Password" id="user-password"/>
+            <input type="submit" placeholder="Register">
+            <p>Already have an account? <button id="login-btn">Login</button></p>
+        </form>
+    </div>
+    <script>
+        const form = document.getElementById('reg-form')
+        const Login_btn = document.getElementById('login-btn')
+
+        form.addEventListener('submit', registerUser)
+
+        async function registerUser(event){
+            event.preventDefault()
+
+            const email = document.getElementById('user-email').value
+            const password = document.getElementById('user-password').value
+
+            const result = await fetch('/api/register', {
+                method: 'POST',
+                headers: {
+                   'Content-type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email,
+                    password
+                })
+            }).then((res)=> res.json())
+
+            if(result.status==='ok'){
+                alert('User Created')
+            }else{
+                alert('Error')
+            }
+        }
+
+        Login_btn.onclick = function () {
+        location.href = "login.html";
+        };
+
+    </script>
+</body>
+</html>

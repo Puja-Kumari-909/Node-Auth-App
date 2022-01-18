@@ -1,0 +1,34 @@
+body{
+    background-color:#BCFFB9;
+    justify-content: center;
+  }
+  
+.container{
+    width: 350px;
+    height: 350px;
+    background-color:white;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 5px solid #F5FDB0;
+    padding: 10px; 
+  }
+
+#reg-form{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#user-email{
+    margin: 5pxpx;
+    border: solid gray;
+}
+
+#user-password{
+    border: solid gray;
+    margin: 5px
+}
